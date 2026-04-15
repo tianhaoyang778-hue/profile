@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杨天豪 · 作品集</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f7f4;
+    --surface: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666;
+    --text-muted: #999;
+    --accent: #1a1a1a;
+    --accent-light: #f0ede8;
+    --border: #e8e4df;
+    --tag-bg: #f0ede8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .name-block h1 {
+    font-family: 'DM Serif Display', 'Noto Serif SC', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  .name-block .subtitle {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+
+  .contact-block {
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    flex-shrink: 0;
+  }
+
+  .contact-block a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-block a:hover { color: var(--text-primary); }
+
+  /* SECTIONS */
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+
+  section {
+    padding-top: 64px;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* INTRO */
+  .intro-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    max-width: 640px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  .project-icon {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+  }
+
+  .project-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .project-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+
+  .project-link::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+
+  .project-card:hover .project-link::after {
+    transform: translateX(3px);
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .tech-tag {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    background: var(--tag-bg);
+    border-radius: 10px;
+    color: var(--text-muted);
+  }
+
+  /* CERTIFICATES */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  }
+
+  .cert-preview {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    background: var(--accent-light);
+  }
+
+  .cert-info {
+    padding: 16px 20px;
+  }
+
+  .cert-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .cert-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-content {
+    max-width: 700px;
+    max-height: 90vh;
+    width: 100%;
+    position: relative;
+  }
+
+  .modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .modal-close:hover { opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    header { padding: 48px 24px 40px; }
+    main { padding: 0 24px 60px; }
+    .name-block h1 { font-size: 2.2rem; }
+    .header-top { flex-direction: column; }
+    .contact-block { text-align: left; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  /* FADE IN */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  header { animation: fadeUp 0.5s ease both; }
+  section:nth-child(1) { animation: fadeUp 0.5s 0.1s ease both; }
+  section:nth-child(2) { animation: fadeUp 0.5s 0.2s ease both; }
+  section:nth-child(3) { animation: fadeUp 0.5s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="name-block">
+      <h1>杨天豪</h1>
+      <div class="subtitle">澳门科技大学 · 应用经济学 · 2027届</div>
+      <div class="tags">
+        <span class="tag">AI Native</span>
+        <span class="tag">独立开发者</span>
+        <span class="tag">内容产品人</span>
+        <span class="tag">全球冠军</span>
+      </div>
+    </div>
+    <div class="contact-block">
+      <div>yth060316@163.com</div>
+      <div>(86) 185 5370 8948</div>
+      <div><a href="https://github.com/tianhaoyang778-hue" target="_blank">github.com/tianhaoyang778-hue</a></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="section-label">关于我</div>
+    <p class="intro-text">
+      我是一个习惯用 AI 解决自己问题的人。备考托福觉得跨三个工具改作文太割裂，就自己把它做成了一个工具；找 AI 实习觉得手动刷岗位太低效，就花三天搭了一套自动抓取工作流。不是因为会技术，是因为忍不了卡点。我已经开始用 Agent 和 Skill 衡量一件事值不值得手动做——能自动化的，我不会做第二遍。
+    </p>
+  </section>
+
+  <section>
+    <div class="section-label">作品</div>
+    <div class="projects-grid">
+
+      <a class="project-card" href="https://github.com/tianhaoyang778-hue/english-learning-studio/blob/main/landing.html" target="_blank">
+        <div class="project-icon">✍️</div>
+        <h3>English Learning Studio</h3>
+        <p>面向托福备考的 AI 写作闭环学习工具。集成 Claude API 实现语法纠错与三级改写，基于浏览器本地存储构建跨会话语法库与句型库。</p>
+        <div class="project-tech">
+          <span class="tech-tag">Claude API</span>
+          <span class="tech-tag">Vibe Coding</span>
+          <span class="tech-tag">HTML/JS</span>
+        </div>
+        <div class="project-link">查看项目</div>
+      </a>
+
+      <a class="project-card" href="https://github.com/tianhaoyang778-hue/ai-job-hunter" target="_blank">
+        <div class="project-icon">🤖</div>
+        <h3>AI Job Hunter</h3>
+        <p>大厂 AI 实习岗位自动抓取工作流。自动访问官方校招网站、抓取岗位详情，依据个人背景评级并输出 Excel 表格，全流程从 1 小时压缩至 15 分钟。</p>
+        <div class="project-tech">
+          <span class="tech-tag">Claude Cowork</span>
+          <span class="tech-tag">Skill封装</span>
+          <span class="tech-tag">自动化工作流</span>
+        </div>
+        <div class="project-link">查看项目</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">证书 & 荣誉</div>
+    <div class="certs-grid">
+
+      <div class="cert-card" onclick="openModal('cert1')">
+        <img class="cert-preview" src="https://raw.githubusercontent.com/tianhaoyang778-hue/profile/main/929.png"
+          alt="929全球冠军证书" id="cert1-thumb">
+        <div class="cert-info">
+          <div class="cert-title">929创新创业挑战赛 · 全球冠军</div>
+          <div class="cert-meta">第四届中葡创新创业挑战赛 · 2024.11 · 澳门</div>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openModal('cert2')">
+        <img class="cert-preview" src="https://raw.githubusercontent.com/tianhaoyang778-hue/profile/main/tedx.png"
+          alt="TEDxMacauUST证书" id="cert2-thumb">
+        <div class="cert-info">
+          <div class="cert-title">TEDxMacauUST · 贡献证书</div>
+          <div class="cert-meta">TEDx Deputy Director 颁发 · 2023–2024</div>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openModal('cert3')">
+        <img class="cert-preview" src="https://raw.githubusercontent.com/tianhaoyang778-hue/profile/main/dean.png"
+          alt="Dean's Honor List" id="cert3-thumb">
+        <div class="cert-info">
+          <div class="cert-title">院长优秀生榜 · Dean's Honor List</div>
+          <div class="cert-meta">澳门科技大学商学院 · 2024/2025 学年</div>
+        </div>
+      </div>
+
+      <div class="cert-card" onclick="openModal('cert4')">
+        <img class="cert-preview" src="https://raw.githubusercontent.com/tianhaoyang778-hue/profile/main/culture.png"
+          alt="文化杰出奖" id="cert4-thumb">
+        <div class="cert-info">
+          <div class="cert-title">文化杰出奖</div>
+          <div class="cert-meta">澳门科技大学 · 2025</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('active')">✕</button>
+    <img id="modal-img" src="" alt="">
+  </div>
+</div>
+
+<footer>
+  <p>杨天豪 · Portfolio · 2025</p>
+  <p>求职方向：AI 产品经理</p>
+</footer>
+
+<script>
+  // 证书图片数据 - 使用上传的图片base64或占位
+  // 由于是静态HTML，证书图片需本地替换
+  // 点击放大功能
+  const certImages = {
+    cert1: '', // 929证书
+    cert2: '', // TEDx证书
+    cert3: '', // Dean's Honor List
+    cert4: '', // 文化杰出奖
+  };
+
+  function openModal(certId) {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const thumb = document.getElementById(certId + '-thumb');
+    if (thumb && thumb.src && !thumb.src.includes('placeholder')) {
+      modalImg.src = thumb.src;
+      modal.classList.add('active');
+    }
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal')) {
+      document.getElementById('modal').classList.remove('active');
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.getElementById('modal').classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
